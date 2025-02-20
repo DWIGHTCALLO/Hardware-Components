@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Hardware Components</title>
+    <style>
+        header {
+            background:transparent;
+            padding: 30px;
+            text-align: center;
+            font-size:50px;
+            color: white;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: white;
+            padding: 10px;
+            text-align: center;
+            color: lightblue;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('alpha.gif') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+
+        
+        .menu-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .menu-button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 40px;
+            right: 10px;
+            background-color: #3a4b57;
+            border-radius: 4px;
+            width: 170px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            color: white;
+            text-decoration: none;
+            text-align: left;
+        }
+
+        .dropdown a:hover {
+            background-color: #4b626d;
+        }
+
+        
+        .info-box {
+            display: none;
+            background-color: #ffffff;
+            color: black;
+            padding: 15px;
+            border-radius: 5px;
+            position: absolute;
+            top: 80px;
+            right: 10px;
+            width: 250px;
+            text-align: center;
+        }
+
+        .info-box img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .close-btn {
+            margin-top: 10px;
+            padding: 8px;
+            background-color: #ff4c4c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .close-btn:hover {
+            background-color: #cc0000;
+        }
+<title>Team Ba Presentation</title>
+<link rel="icon" 
+href="timba.jpg" type="image/x-icon">
+    </style>
+</head>
+<body>
+
+<header>Computer Hardware Components</header>
+
+<div class="menu-container">
+    <button class="menu-button" onclick="toggleDropdown()">☰</button>
+</div>
+
+<div class="dropdown" id="dropdownMenu">
+    <a href="#" onclick="showInfo('Monitor')"> 🖥 Monitor</a>
+    <a href="#" onclick="showInfo('Mouse')"> 🖱 Mouse</a>
+    <a href="#" onclick="showInfo('Keyboard')">⌨ Keyboard</a>
+    <a href="#" onclick="showInfo('System Unit')">🗄 System Unit</a>
+    <a href="#" onclick="showInfo('Printer')"> 🖨 Printer</a>
+    <a href="#" onclick="showInfo('Speaker')"> 📢 Speaker</a>
+    <a href="#" onclick="showInfo('Headphone')">🎧 Headphone</a>
+    <a href="#" onclick="showInfo('Mousepad')"> 🐭 Mouse Pad</a>
+    <a href="#" onclick="showInfo('Microphone')"> 🎙 Microphone</a>
+    <a href="#" onclick="showInfo('About Us')">👨‍💻 About Us</a>
+</div>
+
+
+<div class="info-box" id="infoBox">
+    <h3 id="infoTitle"></h3>
+    <img id="infoImage" src="" alt="">
+    <p id="infoDescription"></p>
+    <button class="close-btn" onclick="closeInfo()">Close</button>
+</div>
+
+<script>
+    function toggleDropdown() {
+        var menu = document.getElementById("dropdownMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
+    }
+
+    function showInfo(item) {
+        var infoBox = document.getElementById("infoBox");
+        var title = document.getElementById("infoTitle");
+        var image = document.getElementById("infoImage");
+        var description = document.getElementById("infoDescription");
+
+        var data = {
+            "Monitor": {
+                "title": "Monitor",
+                "image": "monitor.webp",
+                "description": 'A monitor is an output device that displays visual information. <a href="https://en.m.wikipedia.org/wiki/Computer_monitor" target="_blank">References</a>'
+            },
+            "Mouse": {
+                "title": "Mouse",
+                "image": "mouse.webp",
+                "description": 'A mouse is a pointing device used to interact with a computer. <a href="https://www.techtarget.com/whatis/definition/mouse" target="_blank">References</a>'
+            },
+            "Keyboard": {
+                "title": "Keyboard",
+                "image": "keyboard.webp",
+                "description": 'A keyboard is an input device used to type and input commands. <a href="https://simple.m.wikipedia.org/wiki/Keyboard_(computer)" target="_blank">References</a>'
+            },
+            "System Unit": {
+                "title": "System Unit",
+                "image": "systemunit.webp",
+                "description": 'The system unit houses the motherboard, CPU, and other essential components. <a href="https://nordvpn.com/cybersecurity/glossary/system-unit/" target="_blank">References</a>'
+            },
+            "Printer": {
+                "title": "Printer",
+                "image": "printer.webp",
+                "description": 'A printer is used to produce hard copies of digital documents. <a href="https://www.britannica.com/technology/computer-printer" target="_blank">References</a>'
+            },
+            "Speaker": {
+                "title": "Speaker",
+                "image": "speaker.webp",
+                "description": 'Speakers output sound from the computer. <a href="https://www.computerhope.com/jargon/s/speaker.htm" target="_blank">References</a>'
+            },
+            "Headphone": {
+                "title": "Headphone",
+                "image": "headphone.webp",
+                "description": 'Headphones provide private audio listening. <a href="https://www.geeksforgeeks.org/what-are-headphones/" target="_blank">References</a>'
+            },
+            "Mousepad": {
+                "title": "Mousepad",
+                "image": "mousepad.webp",
+                "description": 'A mousepad provides a smooth surface for the mouse. <a href="https://www.lenovo.com/us/en/glossary/mouse-pad/" target="_blank">References</a>'
+            },
+            "Microphone": {
+                "title": "Microphone",
+                "image": "microphone.webp",
+                "description": 'A microphone captures audio input. <a href="https://homework.study.com/explanation/what-is-the-function-of-microphone-in-computer.html" target="_blank">References</a>'
+            },
+            "About Us": {
+                "title": "About Us",
+                "image": "ba.jpg",
+                "description": "Team Ba"
+            }
+        };
+
+        title.innerText = data[item].title;
+        image.src = data[item].image;
+        description.innerHTML = data[item].description;
+
+        infoBox.style.display = "block";
+        document.getElementById("dropdownMenu").style.display = "none";
+    }
+
+    function closeInfo() {
+        document.getElementById("infoBox").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
